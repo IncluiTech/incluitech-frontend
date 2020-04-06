@@ -1,0 +1,1 @@
+Esta parte de assets, vai servir como os ativos do projeto, aqui vão icones, imagens, etc..

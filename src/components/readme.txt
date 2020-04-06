@@ -1,0 +1,1 @@
+Component de apresentação, ele é a parte burra do componente, ele cuida apenas do render, todos os dados ele recebe. 

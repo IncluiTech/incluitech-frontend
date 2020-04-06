@@ -1,0 +1,1 @@
+Essa é a parte inteligente, é ele quem carrega os dados e manipula os "states" entregando tudo bem mastigado para os components.

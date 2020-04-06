@@ -1,0 +1,1 @@
+Documentos de configuração e afins.
