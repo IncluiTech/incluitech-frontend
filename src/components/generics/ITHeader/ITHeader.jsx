@@ -2,8 +2,6 @@ import React from 'react'
 import Logo from '../../../assets/logo.png'
 import './ITHeader.scss'
 
-
-
 export const ITHeader = () => {
 	return (
 		<div className='ITHeader'>
