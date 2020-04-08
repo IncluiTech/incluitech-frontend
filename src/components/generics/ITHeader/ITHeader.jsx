@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-
+import React from 'react'
+import Logo from '../../../assets/logo.png'
 import './ITHeader.scss'
 
-import Logo from '../../../assets/logo.png'
+
 
 export const ITHeader = () => {
 	return (
