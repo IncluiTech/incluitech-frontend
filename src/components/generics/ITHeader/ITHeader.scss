@@ -1,4 +1,4 @@
-@import "../../../App.scss";
+@import '../../../App.scss';
 
 .ITHeader {
 	width: 100vw;
@@ -10,6 +10,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	z-index: 999;
 
 	&__image {
 		&--container {
