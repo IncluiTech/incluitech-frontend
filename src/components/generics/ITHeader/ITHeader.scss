@@ -1,0 +1,31 @@
+@import "../../../App.scss";
+
+.ITHeader {
+	position: fixed;
+	width: 100vw;
+	margin: 0;
+	background-color: $primary-color;
+	padding: 15px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	&__image {
+		&--container {
+			flex: 5;
+			display: flex;
+			justify-content: flex-start;
+		}
+		height: 40px;
+	}
+
+	&__ancoras {
+		cursor: pointer;
+		display: flex;
+		justify-content: space-around;
+		flex: 2;
+		color: white;
+		text-transform: uppercase;
+		font-weight: 500;
+	}
+}
