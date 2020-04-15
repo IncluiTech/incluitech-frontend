@@ -1,5 +1,7 @@
 import React from 'react';
-import { ITHeader, ITTags } from './components/generics';
+import { Container } from '@material-ui/core'
+import { ITHeader } from './components/generics';
+import { ClientView } from './components/cliente/ClientView'
 
 import "./App.scss"
 
@@ -7,7 +9,9 @@ function App() {
   return (
     <div className="App">
       <ITHeader />
-      <ITTags tags={["Tag1", "Tag2", "Tag3", "Tag4", "Tag5", "Tag6", "Tag7"]}/>
+      <Container className="Container" maxWidth="md">
+        <ClientView />
+      </Container>
     </div>
   );
 }
