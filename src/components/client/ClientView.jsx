@@ -2,18 +2,12 @@ import React from 'react'
 import { TableContainer, Paper, Table, TableHead, TableBody, TableRow, TableCell } from '@material-ui/core';
 import { Button, ButtonGroup } from '@material-ui/core';
 import { ITTags } from '../generics'
+import ClientService from '../../services/client/clientService'
 
-const createData = (id, name, email, tags) => {
-    return { id, name, email, tags }
+
+const loadData = () => {
+    return ClientService.findClients()
 }
-
-const data = [
-    createData("1", "Pessoa1", "pessoa@mailing", ['tag', 'tag', 'tag', 'tag', 'tag']),
-    createData("2", "Pessoa2", "pessu@mailing", ['tag', 'tag', 'tag', 'tag', 'tag']),
-    createData("3", "Pessoa3", "people@mailing", ['tag', 'tag', 'tag', 'tag', 'tag', 'tag']),
-    createData("4", "Pessoa4", "person@mailing", ['tag', 'tag', 'tag', 'tag']),
-    createData("5", "Pessoa5", "vivente@mailing", ['tag', 'tag', 'tag'])
-]
 
 const ClientView = () => {
     return (
@@ -29,7 +23,7 @@ const ClientView = () => {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {data.map((row) => {
+                    {loadData().map((row) => {
                         return (<TableRow key={row.id}>
                             <TableCell>{row.id}</TableCell>
                             <TableCell align="center">{row.name}</TableCell>

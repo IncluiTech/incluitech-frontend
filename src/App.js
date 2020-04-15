@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from '@material-ui/core'
 import { ITHeader } from './components/generics';
-import { ClientView } from './components/cliente/ClientView'
+import { ClientView } from './components/client/ClientView'
 
 import "./App.scss"
 
