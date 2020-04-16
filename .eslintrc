@@ -1,0 +1,39 @@
+{
+  "parser": "babel-eslint",
+  "plugins": ["react", "prettier"],
+  "extends": ["eslint:recommended", "plugin:react/recommended", "prettier", "prettier/react"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 7,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "react/prop-types": 0,
+    "no-console": "warn",
+    "prettier/prettier": "error",
+    "quotes": ["error", "single"],
+    "semi": ["error", "never"],
+    "comma-dangle": ["error", "always-multiline"],
+    "no-cond-assign": ["error", "always"],
+    "no-extra-boolean-cast": 0,
+    "prefer-const": [
+      "error",
+      {
+        "destructuring": "any",
+        "ignoreReadBeforeAssign": false
+      }
+    ]
+  }
+}

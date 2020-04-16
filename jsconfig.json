@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "baseUrl": "./src",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "noEmit": true,
+    "alwaysStrict": true,
+    "sourceMap": false,
+    "jsx": "react"
+  },
+  "exclude": ["dist"]
+}
