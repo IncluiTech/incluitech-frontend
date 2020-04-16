@@ -13,35 +13,30 @@ const mockedData = [
     createData("5", "Pessoa5", "vivente@mailing", ['tag', 'tag', 'tag'])
 ]
 
-export default function () {
-    const httpRequest = axios.create({
-        baseURL: config.API_SSP_URL
+export const buildClientData = (clients) => {
+    return clients.map(client => {
+        return {
+            id: client.id,
+            name: client.name,
+            email: client.email,
+            tags: client.tags
+        }
     })
+}
 
-    const buildClientData = (clients) => {
-        return clients.map(client => {
-            return {
-                id: client.id,
-                name: client.name,
-                email: client.email,
-                tags: client.tags
-            }
-        })
-    }
+const httpRequest = axios.create({
+    baseURL: config.API_SSP_URL
+})
 
-    const findClients = async () => {
-        try {
-            const response = await httpRequest().get("/v1/clients")
-            return buildClientData(response.data)
-        } catch (ex) {
-            console.error('Error Trying to get users in path /v1/clients', ex)
-            throw ex
-        }
-    }
+export const findClients = async () => {
+    try {
+        return mockedData
+        // const response = await httpRequest.get("/v1/clients")
+        // console.log(response.data)
+        // return buildClientData(response.data)
 
-    return {
-        findClients: function () {
-            return mockedData
-        }
+    } catch (ex) {
+        console.error('Error Trying to get users in path /v1/clients', ex)
+        throw ex
     }
 }
