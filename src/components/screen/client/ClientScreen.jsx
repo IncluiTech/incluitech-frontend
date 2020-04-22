@@ -21,7 +21,7 @@ const ClientScreen = () => {
     loadData()
   }, [])
   return (
-    <TableContainer component={Paper} elevation={5}>
+    <TableContainer component={Paper}>
       <Table>
         <TableHead>
           <TableRow>

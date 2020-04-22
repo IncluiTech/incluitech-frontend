@@ -1,13 +1,11 @@
 import React from 'react'
-import { ExpansionPanel, ExpansionPanelSummary } from '@material-ui/core'
+import { ITPanel } from '../generics'
 import { ClientScreen } from './client/ClientScreen'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
 export function MainScreen() {
   return (
-    <ExpansionPanel>
-      <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>Clientes</ExpansionPanelSummary>
+    <ITPanel title="Clientes">
       <ClientScreen />
-    </ExpansionPanel>
+    </ITPanel>
   )
 }
