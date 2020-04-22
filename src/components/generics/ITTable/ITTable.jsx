@@ -17,22 +17,25 @@ export function ITTable({ header, data, rowConfigs }) {
       </TableCell>
     ))
 
-  const renderRows = (row, index, rowIndex) => {
-    const rowConfig = rowConfigs[index]
-    const columnKey = `row-${rowIndex}-column-${index}`
-    if (rowConfig.getCustomComponent) {
-      return (
-        <TableCell key={columnKey} align="center">
-          {rowConfig.getCustomComponent(row)()}
-        </TableCell>
-      )
-    }
-    return (
-      <TableCell key={columnKey} align="center">
-        {row[rowConfig.prop]}
-      </TableCell>
-    )
+  const getCeilProps = (rowIndex, index, conf) => {
+    const key = `row-${rowIndex}-column-${index}`
+    const ceilStyle = { wordBreak: 'break-word' }
+    const style = conf.customStyle ? { ...ceilStyle, ...conf.customStyle } : ceilStyle
+    return { style, key }
   }
+
+  const renderRows = (row, index, rowIndex) => {
+    const conf = rowConfigs[index]
+    const { style, key } = getCeilProps(rowIndex, index, conf)
+    const content = conf.getCustomComponent ? conf.getCustomComponent(row)() : row[conf.prop]
+    return renderTableCeil(style, key, content)
+  }
+
+  const renderTableCeil = (style, key, content) => (
+    <TableCell style={style} key={key} align="center">
+      {content}
+    </TableCell>
+  )
 
   const renderTableContent = () => {
     return data.map((row, dataIndex) => {
