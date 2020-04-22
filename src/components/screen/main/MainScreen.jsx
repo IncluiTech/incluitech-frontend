@@ -1,15 +1,17 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { ITPanel } from '../../generics'
 import { ClienteFragment } from './fragments/ClienteFragment'
 import { SolucionadorFragment } from './fragments/SolucionadorFragment'
+import './MainScreen.scss'
+
 
 export function MainScreen() {
   return (
-    <div className="Screen">
+    <div className="MainScreen">
       <ITPanel title="Clientes">
         <ClienteFragment />
       </ITPanel>
-      <ITPanel title="Solucionadores">
+      <ITPanel className="MainScreen__panel" title="Solucionadores">
         <SolucionadorFragment />
       </ITPanel>
     </div>

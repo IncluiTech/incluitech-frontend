@@ -1,0 +1,8 @@
+@import '../../../App.scss';
+.MainScreen {
+  @extend .Screen;
+
+  &__panel {
+    margin-top: 25px !important;
+  }
+}
