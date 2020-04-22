@@ -10,7 +10,7 @@ const mockedData = [
   createData('2', 'Pessoa2', 'pessu@mailing', ['tag', 'tag', 'tag', 'tag', 'tag']),
   createData('3', 'Pessoa3', 'people@mailing', ['tag', 'tag', 'tag', 'tag', 'tag', 'tag']),
   createData('4', 'Pessoa4', 'person@mailing', ['tag', 'tag', 'tag', 'tag']),
-  createData('5', 'Pessoa5', 'vivente@mailing', ['tag', 'tag', 'tag']),,
+  createData('5', 'Pessoa5', 'vivente@mailing', ['tag', 'tag', 'tag']),
 ]
 
 export const buildClientData = clients => {
@@ -19,13 +19,13 @@ export const buildClientData = clients => {
       id: client.id,
       name: client.name,
       email: client.email,
-      tags: client.tags,,
+      tags: client.tags,
     }
   })
 }
 
 const httpRequest = axios.create({
-  baseURL: config.API_SSP_URL,,
+  baseURL: config.API_SSP_URL,
 })
 
 export const findClients = async () => {
