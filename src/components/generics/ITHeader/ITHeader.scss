@@ -1,33 +1,24 @@
 @import '../../../App.scss';
 
 .ITHeader {
-	width: 100vw;
-	position: fixed;
-	top: 0;
-	margin: 0;
-	background-color: $primary-color;
-	padding: 15px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	z-index: 999;
+  background-color: $primary-color;
 
-	&__image {
-		&--container {
-			flex: 5;
-			display: flex;
-			justify-content: flex-start;
-		}
-		height: 40px;
-	}
+  &__image {
+    &--container {
+      flex: 5;
+      display: flex;
+      justify-content: flex-start;
+    }
+    height: 40px;
+  }
 
-	&__ancoras {
-		cursor: pointer;
-		display: flex;
-		justify-content: space-around;
-		flex: 2;
-		color: white;
-		text-transform: uppercase;
-		font-weight: 500;
-	}
+  &__ancoras {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    flex: 3;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
 }
