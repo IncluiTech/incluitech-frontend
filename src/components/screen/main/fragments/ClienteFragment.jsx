@@ -15,10 +15,10 @@ export const ClienteFragment = () => {
   const tableHeader = ['#', 'Nome', 'Email', 'Tags', 'Ações']
   const tableRowsConfig = [
     { prop: 'id' },
-    { prop: 'name' },
+    { prop: 'name', customStyle: { maxWidth: 50 } },
     { prop: 'email' },
     { getCustomComponent: row => () => <ITTags tags={row.tags} /> },
-    { getCustomComponent: () => ITActions },
+    { getCustomComponent: () => ITActions, customStyle: { width: 175 } },
   ]
 
   return <ITTable data={listClients} header={tableHeader} rowConfigs={tableRowsConfig} />
