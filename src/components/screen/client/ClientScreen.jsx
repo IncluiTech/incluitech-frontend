@@ -9,10 +9,10 @@ import {
   TableCell,
 } from '@material-ui/core'
 import { Button, ButtonGroup } from '@material-ui/core'
-import { ITTags } from '../generics'
-import { findClients } from '../../services/client/clientService'
+import { ITTags } from '../../generics'
+import { findClients } from '../../../services/client/clientService'
 
-const ClientView = () => {
+const ClientScreen = () => {
   const [listClients, setListClients] = useState([])
   useEffect(() => {
     const loadData = async () => {
@@ -57,4 +57,4 @@ const ClientView = () => {
   )
 }
 
-export { ClientView }
+export { ClientScreen }
