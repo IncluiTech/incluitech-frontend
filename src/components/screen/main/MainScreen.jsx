@@ -4,7 +4,6 @@ import { ClienteFragment } from './fragments/ClienteFragment'
 import { SolucionadorFragment } from './fragments/SolucionadorFragment'
 import './MainScreen.scss'
 
-
 export function MainScreen() {
   return (
     <div className="MainScreen">

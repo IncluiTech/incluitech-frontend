@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { findClients } from '../../../../services/client/clientService'
 import { ITActions, ITTags } from '../../../generics'
 import { ITTable } from '../../../generics/ITTable/ITTable'
 
