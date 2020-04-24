@@ -1,5 +1,5 @@
 import React from 'react'
-import CloseIcon from '@material-ui/icons/Close'
+import CloseIcon from '@material-ui/icons/Close';
 import DoneIcon from '@material-ui/icons/Done'
 
 import './ITActions.scss'
