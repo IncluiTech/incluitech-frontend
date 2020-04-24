@@ -1,25 +1,28 @@
-import React, { useState, useEffect } from 'react'
 import {
-  TableContainer,
+  Button,
+  ButtonGroup,
   Paper,
   Table,
-  TableHead,
   TableBody,
-  TableRow,
   TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
 } from '@material-ui/core'
-import { Button, ButtonGroup } from '@material-ui/core'
+import React, { useEffect, useState } from 'react'
+import { clientService } from '../../services/client/clientService'
 import { ITTags } from '../generics'
-import { findClients } from '../../services/client/clientService'
 
 const ClientView = () => {
-  const [listClients, setListClients] = useState([])
+  const [clients, updateClients] = useState([])
+  const findClients = async () => {
+    const clients = await clientService.findClients()
+    updateClients(clients)
+  }
   useEffect(() => {
-    const loadData = async () => {
-      setListClients(await findClients())
-    }
-    loadData()
+    findClients()
   }, [])
+
   return (
     <TableContainer component={Paper} elevation={5}>
       <Table>
@@ -33,14 +36,14 @@ const ClientView = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {listClients.map(row => {
+          {clients.map(client => {
             return (
-              <TableRow key={row.id}>
-                <TableCell>{row.id}</TableCell>
-                <TableCell align="center">{row.name}</TableCell>
-                <TableCell align="center">{row.email}</TableCell>
+              <TableRow key={client.id}>
+                <TableCell>{client.id}</TableCell>
+                <TableCell align="center">{client.nome}</TableCell>
+                <TableCell align="center">{client.email}</TableCell>
                 <TableCell align="center">
-                  <ITTags tags={row.tags} />
+                  <ITTags tags={client.tags} />
                 </TableCell>
                 <TableCell align="center">
                   <ButtonGroup variant="contained">
