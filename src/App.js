@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 import { Container } from '@material-ui/core'
-import { ITHeader } from './components/generics';
+import { ITHeader } from './components/generics'
 import { ClientView } from './components/client/ClientView'
 
-import "./App.scss"
+import './App.scss'
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
         <ClientView />
       </Container>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

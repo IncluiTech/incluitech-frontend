@@ -1,11 +1,10 @@
 import axios from 'axios'
 import config from '../util/config'
 
-
 class HttpService {
   constructor() {
     this.axios = axios.create({
-      baseURL: config.API_SSP_URL
+      baseURL: config.API_SSP_URL,
     })
   }
 
@@ -52,8 +51,6 @@ class HttpService {
   async accessExternal(method, url) {
     return this.axios[method](url)
   }
-
 }
 
 export const httpService = new HttpService()
-
