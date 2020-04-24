@@ -1,10 +1,11 @@
 import React from 'react'
 import Logo from '../../../assets/logo.png'
 import './ITHeader.scss'
+import { Toolbar } from '@material-ui/core'
 
 export const ITHeader = () => {
   return (
-    <div className="ITHeader">
+    <Toolbar className="ITHeader">
       <div className="ITHeader__image--container">
         <img src={Logo} alt="IncluiTec Logo" className="ITHeader__image" />
       </div>
@@ -13,6 +14,6 @@ export const ITHeader = () => {
         <a>Estatísticas</a>
         <a>Sair</a>
       </div>
-    </div>
+    </Toolbar>
   )
 }

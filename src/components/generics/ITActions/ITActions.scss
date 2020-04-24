@@ -1,0 +1,22 @@
+.ITActions {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  &--container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__icon {
+      cursor: pointer;
+      font-size: 32px !important;
+
+      &--approve {
+        color: green;
+      }
+
+      &--deny {
+        color: red;
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+.ITPanel {
+  font-size: 20px;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  border-radius: 50%;
+  border-radius: 15px !important;
+  background-color: #fafafa !important;
+
+  &__title {
+    font-size: 24px;
+    color: black;
+  }
+
+  &__body {
+    padding: 18px;
+    padding-bottom: 0;
+    margin-bottom: 15px;
+    padding-top: 5px;
+    overflow-y: scroll;
+    max-height: 300px;
+  }
+}
