@@ -20,7 +20,7 @@ const mockedData = [
 export const ClienteFragment = () => {
   const [clients, updateClients] = useState([])
   const findClients = async () => {
-    const clients = await mockedData;
+    const clients = await clientService.findClients();
     updateClients(clients)
   }
   useEffect(() => {

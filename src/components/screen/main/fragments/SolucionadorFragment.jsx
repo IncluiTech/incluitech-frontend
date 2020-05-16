@@ -1,38 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { ITActions, ITTags } from '../../../generics'
 import { ITTable } from '../../../generics/ITTable/ITTable'
-
-/* !IMPORANTE!
- * Esse código deve ser removido assim que a integração com o backend for feita
- * TODO: Remover código
- */
-const createData = (id, name, lattes, email, telefone, tags) => {
-  return { id, name, lattes, email, telefone, tags }
-}
-
-const mockedData = [
-  createData(
-    '1',
-    'Aléxia de Jesus Dorneles Pereira',
-    'http://lattes.cnpq.br/',
-    'alexia.pereira@edu.pucrs.br',
-    '(51) 98923-4000',
-    ['Escola', 'Empresa', 'Palestra', 'Adulto', 'Familia', 'Infantil'],
-  ),
-  createData(
-    '2',
-    'Gabriel Ferreira Kurtz',
-    'http://lattes.cnpq.br/',
-    'gabriel.kurtz@email.com',
-    '(51) 91234-1234',
-    ['Consultor', 'Conflitos', 'Empresa', 'Adulto'],
-  ),
-]
+import { solucionadorService} from '../../../../services/solucionador/solucionadorService'
 
 export const SolucionadorFragment = () => {
-  const [listSolucionador, setListSolucionador] = useState([])
+  const [listSolucionador, updateSolucionador] = useState([])
+  const findSolucionadores = async () =>{
+    const solucionadores = await solucionadorService.findSolucionadores();
+    updateSolucionador(solucionadores)
+  }
   useEffect(() => {
-    setListSolucionador(mockedData)
+    findSolucionadores()
   }, [])
 
   const tableHeader = [
