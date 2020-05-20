@@ -1,39 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import { ITActions, ITTags } from '../../../generics'
 import { ITTable } from '../../../generics/ITTable/ITTable'
-
-/* !IMPORANTE!
- * Esse código deve ser removido assim que a integração com o backend for feita
- * TODO: Remover código
- */
-const createData = (id, name, lattes, email, telefone, tags) => {
-  return { id, name, lattes, email, telefone, tags }
-}
-
-const mockedData = [
-  createData(
-    '1',
-    'Aléxia de Jesus Dorneles Pereira',
-    'http://lattes.cnpq.br/',
-    'alexia.pereira@edu.pucrs.br',
-    '(51) 98923-4000',
-    ['Escola', 'Empresa', 'Palestra', 'Adulto', 'Familia', 'Infantil'],
-  ),
-  createData(
-    '2',
-    'Gabriel Ferreira Kurtz',
-    'http://lattes.cnpq.br/',
-    'gabriel.kurtz@email.com',
-    '(51) 91234-1234',
-    ['Consultor', 'Conflitos', 'Empresa', 'Adulto'],
-  ),
-]
+import { solucionadorService } from '../../../../services/client/solucionadorService'
 
 export const SolucionadorFragment = () => {
   const [listSolucionador, setListSolucionador] = useState([])
+
+  const findSolucionadores = async () => {
+    const solucionadores = await solucionadorService.findSolucionadores()
+    setListSolucionador(solucionadores)
+  }
+
   useEffect(() => {
-    setListSolucionador(mockedData)
+    findSolucionadores()
   }, [])
+
+  const onApprove = model => solucionadorService.aprovarCadastro(model.facebookId)
+
+  const createActionsComponent = row => () => <ITActions model={row} onApprove={onApprove} />
 
   const tableHeader = [
     '#',
@@ -57,7 +41,10 @@ export const SolucionadorFragment = () => {
     { prop: 'email' },
     { prop: 'telefone' },
     { getCustomComponent: row => () => <ITTags tags={row.tags} /> },
-    { getCustomComponent: () => ITActions, customStyle: { width: 175 } },
+    {
+      getCustomComponent: row => createActionsComponent(row),
+      customStyle: { width: 175 },
+    },
   ]
 
   return <ITTable data={listSolucionador} header={tableHeader} rowConfigs={tableRowsConfig} />
