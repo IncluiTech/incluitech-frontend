@@ -4,7 +4,7 @@ const BASE_URL = '/v1/solucionador/'
 
 class SolucionadorService {
   async findSolucionadoresCadastroPendente() {
-    return httpService.get(BASE_URL + '/pendente')
+    return httpService.get(BASE_URL + 'pendente')
   }
 
   async aprovarCadastro(facebookId) {
