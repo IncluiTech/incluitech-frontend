@@ -7,7 +7,7 @@ export const SolucionadorFragment = () => {
   const [listSolucionador, setListSolucionador] = useState([])
 
   const findSolucionadores = async () => {
-    const solucionadores = await solucionadorService.findSolucionadores()
+    const solucionadores = await solucionadorService.findSolucionadoresCadastroPendente()
     setListSolucionador(solucionadores)
   }
 
@@ -15,7 +15,10 @@ export const SolucionadorFragment = () => {
     findSolucionadores()
   }, [])
 
-  const onApprove = model => solucionadorService.aprovarCadastro(model.facebookId)
+  const onApprove = async model => {
+    await solucionadorService.aprovarCadastro(model.facebookId)
+    findSolucionadores()
+  }
 
   const createActionsComponent = row => () => <ITActions model={row} onApprove={onApprove} />
 
@@ -30,7 +33,7 @@ export const SolucionadorFragment = () => {
   ]
   const tableRowsConfig = [
     { prop: 'id' },
-    { prop: 'name', customStyle: { maxWidth: 50 } },
+    { prop: 'nome', customStyle: { maxWidth: 50 } },
     {
       getCustomComponent: ({ lattes }) => () => (
         <a target="blank" href={lattes}>
