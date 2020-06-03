@@ -12,12 +12,13 @@ class MailerService {
     }
 
     async sendMail(mailingContent) {
+        const mailContentProperty = mailingContent.body.isHtml ? 'html' : 'text'
         const mail = {
             from: `"" <${config.MAILING_AUTH.user}>`,
             to: mailingContent.to,
             subject: mailingContent.subject
         }
-        mailingContent.body.isHtml ? mail.html = mailingContent.body.text : mail.text = mailingContent.body.text
+        mail[mailContentProperty] =  mailingContent.body.text
         return this.transporter.sendMail(mail)
     }
 }
