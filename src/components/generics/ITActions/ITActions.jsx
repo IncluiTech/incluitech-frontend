@@ -1,14 +1,17 @@
 import React from 'react'
-import CloseIcon from '@material-ui/icons/Close';
+import CloseIcon from '@material-ui/icons/Close'
 import DoneIcon from '@material-ui/icons/Done'
 
 import './ITActions.scss'
 
-export function ITActions() {
+export function ITActions({ onApprove, model } = {}) {
   return (
     <div className="ITActions">
       <div className="ITActions--container">
-        <DoneIcon className="ITActions--container__icon" htmlColor="green">
+        <DoneIcon
+          className="ITActions--container__icon"
+          htmlColor="green"
+          onClick={() => onApprove(model)}>
           Aprovar
         </DoneIcon>
         <span className="ITActions--container__icon--approve">aprovar</span>
