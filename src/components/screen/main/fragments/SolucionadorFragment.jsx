@@ -28,6 +28,9 @@ export const SolucionadorFragment = () => {
     'Curriculo Lattes',
     'Email',
     'Telefone',
+    'Instituição',
+    'Função',
+    'Experiências',
     'Tags',
     'Ações',
   ]
@@ -43,6 +46,9 @@ export const SolucionadorFragment = () => {
     },
     { prop: 'email' },
     { prop: 'telefone' },
+    { prop: 'instituicao' },
+    { prop: 'funcao' },
+    { prop: 'experiencia', customStyle: { maxWidth: 350 } },
     { getCustomComponent: row => () => <ITTags tags={row.tags} /> },
     {
       getCustomComponent: row => createActionsComponent(row),
