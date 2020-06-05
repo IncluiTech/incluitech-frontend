@@ -13,6 +13,10 @@ export const ClienteFragment = () => {
     findClients()
   }, [])
 
+  const onApprove = model => {
+    console.log('Approved!', model)
+  }
+
   const tableHeader = ['#', 'Nome', 'Email', 'Instituição', 'Função', 'Tags', 'Ações']
   const tableRowsConfig = [
     { prop: 'id' },
@@ -22,7 +26,10 @@ export const ClienteFragment = () => {
     { prop: 'funcao' },
 
     { getCustomComponent: row => () => <ITTags tags={row.tags} /> },
-    { getCustomComponent: () => ITActions, customStyle: { width: 175 } },
+    {
+      getCustomComponent: row => () => <ITActions model={row} onApprove={onApprove} />,
+      customStyle: { width: 175 },
+    },
   ]
 
   return <ITTable data={clients} header={tableHeader} rowConfigs={tableRowsConfig} />
