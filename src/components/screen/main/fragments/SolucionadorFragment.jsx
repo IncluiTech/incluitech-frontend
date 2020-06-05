@@ -6,6 +6,8 @@ import { solucionadorService } from '../../../../services/client/solucionadorSer
 export const SolucionadorFragment = () => {
   const [listSolucionador, setListSolucionador] = useState([])
 
+  const [buttonState, setButtonState] = useState([])
+
   const findSolucionadores = async () => {
     const solucionadores = await solucionadorService.findSolucionadoresCadastroPendente()
     setListSolucionador(solucionadores)
@@ -16,11 +18,14 @@ export const SolucionadorFragment = () => {
   }, [])
 
   const onApprove = async model => {
-    await solucionadorService.aprovarCadastro(model.facebookId)
-    findSolucionadores()
+    console.log("alo")
+    // await solucionadorService.aprovarCadastro(model.facebookId)
+    
+    // setButtonState(false)
+    // findSolucionadores()
   }
 
-  const createActionsComponent = row => () => <ITActions model={row} onApprove={onApprove} />
+  const createActionsComponent = row => () => <ITActions model={row} onApprove={onApprove} buttonState={buttonState} />
 
   const tableHeader = [
     '#',
