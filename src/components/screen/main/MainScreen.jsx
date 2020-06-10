@@ -3,6 +3,7 @@ import { ITPanel } from '../../generics'
 import { ClienteFragment } from './fragments/ClienteFragment'
 import { SolucionadorFragment } from './fragments/SolucionadorFragment'
 import './MainScreen.scss'
+import { ProblemasFragment } from './fragments/ProblemasFragment'
 
 export function MainScreen() {
   return (
@@ -12,6 +13,9 @@ export function MainScreen() {
       </ITPanel>
       <ITPanel className="MainScreen__panel" title="Solucionadores">
         <SolucionadorFragment />
+      </ITPanel>
+      <ITPanel title="Problemas">
+        <ProblemasFragment />
       </ITPanel>
     </div>
   )
