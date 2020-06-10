@@ -2,7 +2,16 @@ import { httpService } from '../httpService'
 
 class ClientService {
   constructor() {
-    this.problemas = ['ESTE AQUI É UM PROBLEMA TOPE', 'ESSE AQUI É OUTRO PROBLEMA']
+    this.problemas = [
+      {
+        title: 'Titulo 1',
+        descricao: 'ESTE AQUI É UM PROBLEMA TOPE'
+      }, 
+      {
+        title: 'Titulo 2',
+        descricao: 'ESSE AQUI É OUTRO PROBLEMA'
+      }
+    ]
   }
 
   async findClients() {

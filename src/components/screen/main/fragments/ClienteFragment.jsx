@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { clientService } from '../../../../services/client/clientService'
-import { ITActions, ITTags, ITModal } from '../../../generics'
-import { ITTable } from '../../../generics/ITTable/ITTable'
-import EditIcon from '@material-ui/icons/Edit'
-import Divider from '@material-ui/core/Divider'
+import { ITTable, ITPanel, ITTags, ITModal } from '../../../generics'
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import './ClientFragment.scss'
 
 export const ClienteFragment = () => {
   const [clients, updateClients] = useState([])
@@ -18,21 +17,30 @@ export const ClienteFragment = () => {
     findClients()
   }, [])
 
-  const getActions = model => (
-    <>
-      <ITActions model={model} />
-      <EditIcon
-        className="ITActions--container__icon"
-        onClick={() => {
-          setSelectedRow(model)
-          setIsProblemModalOpen(!isProblemModalOpen)
-        }}>
-        Editar
-      </EditIcon>
-    </>
+  const ModalBodyComponent = ({ client }) => {
+    return (
+      <div className="ClientFragment__modalProblems">
+        <h1 className="ClientFragment__modalProblems__titleContent">{`Problemas: ${client.nome}`}</h1>
+        {client.problemas.map((problema, index) => {
+          return (<ITPanel key={index} title={problema.title}>
+            <p className="ClientFragment__modalProblems__bodyContent">{problema.descricao}</p>
+          </ITPanel>
+          )
+        })}
+      </div>
+    )
+  }
+
+  const getProblemas = model => (
+    <VisibilityIcon
+      className="ITActions--container__icon"
+      onClick={() => {
+        setSelectedRow(model)
+        setIsProblemModalOpen(!isProblemModalOpen)
+      }} />
   )
 
-  const tableHeader = ['#', 'Nome', 'Email', 'Instituição', 'Função', 'Tags', 'Ações']
+  const tableHeader = ['#', 'Nome', 'Email', 'Instituição', 'Função', 'Tags', 'Problemas']
   const tableRowsConfig = [
     { prop: 'id' },
     { prop: 'nome', customStyle: { maxWidth: 50 } },
@@ -41,7 +49,7 @@ export const ClienteFragment = () => {
     { prop: 'funcao' },
 
     { getCustomComponent: row => () => <ITTags tags={row.tags} /> },
-    { getCustomComponent: row => () => getActions(row), customStyle: { width: 175 } },
+    { getCustomComponent: row => () => getProblemas(row) }
   ]
 
   return (
@@ -50,22 +58,8 @@ export const ClienteFragment = () => {
       <ITModal
         onClose={() => setIsProblemModalOpen(false)}
         isOpen={isProblemModalOpen}
-        body={<ABC list={selectedRow.problemas} />}
+        body={<ModalBodyComponent client={selectedRow} />}
       />
     </>
-  )
-}
-
-function ABC({ list }) {
-  return (
-    <div className="a">
-      <h1>PROBLEMAS: </h1>
-      {list.map((i, index) => (
-        <>
-          <p key={index}>{i}</p>
-          <Divider />
-        </>
-      ))}
-    </div>
   )
 }
