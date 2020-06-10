@@ -16,6 +16,8 @@ export function ITModal({ body, isOpen, onClose }) {
     paper: {
       position: 'absolute',
       width: 600,
+      maxHeight: 600,
+      overflowY: 'scroll',
       backgroundColor: theme.palette.background.paper,
       border: '2px solid #000',
       boxShadow: theme.shadows[5],
