@@ -4,9 +4,9 @@ import React from 'react'
 
 import './ITPanel.scss'
 
-export function ITPanel({ title, children, className }) {
+export function ITPanel({ title, children, className, startExpanded }) {
   return (
-    <ExpansionPanel defaultExpanded={true} className={`ITPanel ${className}`}>
+    <ExpansionPanel defaultExpanded={startExpanded} className={`ITPanel ${className}`}>
       <ExpansionPanelSummary
         className="ITPanel__title"
         expandIcon={<ExpandMoreIcon htmlColor="black" />}>
