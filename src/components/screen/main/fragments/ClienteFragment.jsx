@@ -22,7 +22,7 @@ export const ClienteFragment = () => {
       <div className="ClientFragment__modalProblems">
         <h1 className="ClientFragment__modalProblems__titleContent">{`Problemas: ${client.nome}`}</h1>
         {client.problemas.map((problema, index) => {
-          return (<ITPanel key={index} title={problema.title}>
+          return (<ITPanel key={index} title={problema.titulo}>
             <p className="ClientFragment__modalProblems__bodyContent">{problema.descricao}</p>
           </ITPanel>
           )
