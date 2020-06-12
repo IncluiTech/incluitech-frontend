@@ -7,10 +7,10 @@ import './MainScreen.scss'
 export function MainScreen() {
   return (
     <div className="MainScreen">
-      <ITPanel title="Clientes">
+      <ITPanel title="Clientes" startExpanded>
         <ClienteFragment />
       </ITPanel>
-      <ITPanel className="MainScreen__panel" title="Solucionadores">
+      <ITPanel className="MainScreen__panel" title="Solucionadores" startExpanded>
         <SolucionadorFragment />
       </ITPanel>
     </div>

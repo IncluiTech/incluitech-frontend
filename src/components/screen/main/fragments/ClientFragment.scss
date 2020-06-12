@@ -1,0 +1,12 @@
+@import '../../../../App.scss';
+.ClientFragment {
+    &__modalProblems {
+        &__titleContent {
+            margin-bottom: 20px;
+        } 
+
+        &__bodyContent {
+            font-size: small;
+        }
+    }
+}
