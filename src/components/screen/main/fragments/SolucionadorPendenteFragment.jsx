@@ -3,7 +3,7 @@ import { ITActions, ITTags } from '../../../generics'
 import { ITTable } from '../../../generics/ITTable/ITTable'
 import { solucionadorService } from '../../../../services/client/solucionadorService'
 
-export const SolucionadorFragment = () => {
+export const SolucionadorPendenteFragment = () => {
   const [listSolucionador, setListSolucionador] = useState([])
 
   const findSolucionadores = async () => {
