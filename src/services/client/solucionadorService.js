@@ -7,6 +7,10 @@ class SolucionadorService {
     return httpService.get(BASE_URL + 'pendente')
   }
 
+  async findSolucionadoresCadastroAprovado() {
+    return httpService.get(BASE_URL + 'aprovado')
+  }
+
   async aprovarCadastro(facebookId) {
     return httpService.put(BASE_URL + facebookId)
   }
